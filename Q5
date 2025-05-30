@@ -1,29 +1,31 @@
-Q)Write a shell script program to test whether given year is a leap year.  
+Q)Write a shell script to identify triangle type (Isosceles, Equilateral, Scalene). 
 
 #!/bin/bash
 clear
-read -p "Enter the year : " l
-if (( $l % 400 == 0 ))
+read -p "Enter the sides of the triangle : " a b c
+if [[ $a -eq $b && $b -eq $c ]]
 then
-	echo "$l is a leapyear "
-elif (( $l % 4 == 0 && $l % 100 !=0 ))
+	echo "The triangle is Equilateral "
+elif [[ $a -eq $b || $a -eq $c || $b -eq $c ]]
 then
-	echo "$l is a leapyear"
+	echo "The triangle is Isosceles "
 else
-	echo "$l is not a leapyear"
+	echo "The triangle is Scalene "
 fi
 
 Output:
-Enter the year : 2000
-2000 is a leapyear
+Enter the sides of the triangle : 5 5 5
+The triangle is Equilateral
+
+
 
 
 
 Algorithm:
-1. Step 1: Ask the user to enter a year.
-2. Step 2: Store the input in variable `l`.
-3. Step 3: Check if the year is divisible by 400.
-4. Step 4: If true, print that the year is a leap year.
-5. Step 5: If false, check if the year is divisible by 4 but not by 100.
-6. Step 6: If true, print that the year is a leap year.
-7. Step 7: If none of the above conditions are true, print that the year is not a leap year.
+Step 1: Ask the user to enter the sides of the triangle.
+Step 2: Store the inputs in variables a, b, and c.
+Step 3: Check if all three sides are equal (equilateral).
+Step 4: If true, print that the triangle is equilateral.
+Step 5: If false, check if any two sides are equal (isosceles).
+Step 6: If true, print that the triangle is isosceles.
+Step 7: If none of the above conditions are true, print that the triangle is scalene.
